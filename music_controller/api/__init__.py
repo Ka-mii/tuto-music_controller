@@ -1,0 +1,2 @@
+# Rôle : __init__.py permet à l'interpréteur Python de comprendre que le dossier est un paquet Python. Cela signifie que vous pouvez importer des modules de ce paquet, comme views.py ou admin.py. comme : from api import views
+# Contenu : Souvent vide, mais peut contenir du code pour initialiser le paquet.
