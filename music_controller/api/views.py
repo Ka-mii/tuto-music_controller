@@ -21,7 +21,7 @@ from .models import Room
 # Accept-Encoding: gzip, deflate, br
 # Connection: keep-alive
 
-# La classe RoomView est une vue générique basée sur des classes fournies par Django REST framework. Elle est utilisée pour afficher une liste d'instances du modèle Room sous forme de données JSON sérialisées.
+# RoomView renvoie une réponse HTTP contenant une vue qui affiche toutes les instances du modèle Room sous forme de JSON sérialisé, incluant les champs spécifiés dans le RoomSerializer.
 class RoomView(generics.ListAPIView): 
-    queryset = Room.objects.all()
-    serializer_class = RoomSerializer
+    queryset = Room.objects.all() # Définit la requête de base qui récupère toutes les instances du modèle Room depuis la base de données.
+    serializer_class = RoomSerializer # Spécifie le sérialiseur RoomSerializer qui convertit les instances du modèle Room en données JSON.
