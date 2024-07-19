@@ -24,5 +24,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls), # si domain.com/admin, ça va rediriger vers admin.site.urls qui va gérer l'affichage de la page
-    path('', include('api.urls')) # redirige tous les urls '' vers le module urls de api
+    path('api/', include('api.urls')) # redirige tous les urls '' vers le module urls de api
 ]

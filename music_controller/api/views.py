@@ -2,7 +2,10 @@
 # Contenu : Définit des fonctions ou des classes qui déterminent la logique de traitement des requêtes et la génération des réponses.
 
 from django.shortcuts import render
+from rest_framework import generics
 from django.http import HttpResponse
+from .serializers import RoomSerializer
+from .models import Room
 
 # Create your views here.
 
@@ -17,5 +20,8 @@ from django.http import HttpResponse
 # Accept-Language: en-US,en;q=0.5
 # Accept-Encoding: gzip, deflate, br
 # Connection: keep-alive
-def main(request):
-    return HttpResponse("Hello")
+
+# La classe RoomView est une vue générique basée sur des classes fournies par Django REST framework. Elle est utilisée pour afficher une liste d'instances du modèle Room sous forme de données JSON sérialisées.
+class RoomView(generics.ListAPIView): 
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer
