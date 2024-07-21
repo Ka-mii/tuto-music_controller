@@ -23,5 +23,8 @@ from .models import Room
 
 # RoomView renvoie une réponse HTTP contenant une vue qui affiche toutes les instances du modèle Room sous forme de JSON sérialisé, incluant les champs spécifiés dans le RoomSerializer.
 class RoomView(generics.ListAPIView): 
+    # queryset et serializer_class sont des attributs qui controle le comportement de la vue
     queryset = Room.objects.all() # Définit la requête de base qui récupère toutes les instances du modèle Room depuis la base de données.
+    # queryset - The queryset that should be used for returning objects from this view. Typically, you must either set this attribute, or override the get_queryset() method. If you are overriding a view method, it is important that you call get_queryset() instead of accessing this property directly, as queryset will get evaluated once, and those results will be cached for all subsequent requests.
     serializer_class = RoomSerializer # Spécifie le sérialiseur RoomSerializer qui convertit les instances du modèle Room en données JSON.
+    # serializer_class - The serializer class that should be used for validating and deserializing input, and for serializing output. Typically, you must either set this attribute, or override the get_serializer_class() method.
